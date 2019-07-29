@@ -36,14 +36,10 @@ public final class Socket {
     
     // MARK: - Initialisation
     
-    public init(url: URL, params: [String: String]? = nil, headers: [String : String]? = nil) {
+    public init(url: URL, params: [String: String]? = nil) {
         heartbeatQueue = DispatchQueue(label: "com.ecksd.birdsong.hbqueue", attributes: [])
         socket = WebSocket(url: buildURL(url, params: params))
         socket.delegate = self
-        if let headers = headers {
-            #warning("OGARNAC")
-//            socket.headers = headers
-        }
     }
     
     public convenience init(url: String, params: [String: String]? = nil) {
